@@ -1,7 +1,7 @@
 import React from 'react';
 export default function ImagePopup(props) {
   return (
-    <section className={(props.isOpen ? "popup popup-image popup_opened" : "popup popup-image")}>
+    <section className={`popup popup-image ${props.isOpen ? 'popup_opened' : ''}`}> 
       <div className="popup__container popup-image__container">
         <button onClick={props.onClose} className="button button_type_close" id="close-image" type="button" aria-label="Закрыть"></button>
         <figure className="figure-place">

@@ -120,20 +120,20 @@ class Api {
         if (res.ok) {
           return res.json();
         }
-        return Promise.reject(`Ошибка: ${res.status}`); 
+        return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
 
 }
 
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-16',
-    headers: {
-      authorization: '998fe87c-1205-4216-8ac1-5bc50516f491',
-      'Content-Type': 'application/json'
-    }
-  });
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-16',
+  headers: {
+    authorization: '998fe87c-1205-4216-8ac1-5bc50516f491',
+    'Content-Type': 'application/json'
+  }
+});
 
-  export default api;
+export default api;
 
 
