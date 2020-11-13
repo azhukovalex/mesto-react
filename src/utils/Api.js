@@ -17,7 +17,7 @@ class Api {
         }
       });
   }
-
+  
   getCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
@@ -135,5 +135,8 @@ const api = new Api({
 });
 
 export default api;
+
+
+
 
 
