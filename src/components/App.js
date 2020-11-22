@@ -15,7 +15,7 @@ function App() {
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setAvatarPopupOpen] = React.useState(false);
   const [isConfPopupOpen, setIsConfPopupOpen] = React.useState(false);
-  const [cardDelete, setCardDelete] = React.useState([]);
+  const [cardDelete, setCardDelete] = React.useState({});
   const [isCardSelected, setIsCardSelected] = React.useState(false);
   const [cards, setCards] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
@@ -104,7 +104,7 @@ function App() {
 
   function handleAddPlaceSubmit(card) {
     api.createNewCard(card.name, card.link).then((newCard) => {
-      setCards([...cards, newCard]);
+      setCards([newCard, ...cards]);
       closeAllPopups();
     })
       .catch((err) => {
