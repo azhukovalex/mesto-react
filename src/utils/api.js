@@ -17,7 +17,7 @@ class Api {
         }
       });
   }
-  
+
   getCards() {
     return fetch(`${this._url}/cards`, {
       method: 'GET',
@@ -80,32 +80,17 @@ class Api {
       });
   }
 
-  addLike(card) {
-    return fetch(`${this._url}/cards/likes/${card.id}`, {
-      method: 'PUT',
+  changeLikeCard(id, status) {
+    return fetch(`${this._url}/cards/likes/${id}`, {
+      method: `${(status) ? 'PUT' : 'DELETE'}`,
       headers: this._headers,
     })
-      .then(res => {
+      .then((res) => {
         if (res.ok) {
           return res.json();
-        } else {
-          return Promise.reject(`Ошибка: ${res.status}`);
         }
-      });
-  }
-
-  deleteLike(card) {
-    return fetch(`${this._url}/cards/likes/${card.id}`, {
-      method: 'DELETE',
-      headers: this._headers,
-    })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Ошибка: ${res.status}`);
-        }
-      });
+        return Promise.reject(`Ошибка: ${res.status}`);
+      })
   }
 
   updateAvatar(link) {
@@ -123,7 +108,6 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
       });
   }
-
 }
 
 const api = new Api({
