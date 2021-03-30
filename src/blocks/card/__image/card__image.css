@@ -1,5 +1,8 @@
 .card__image {
-    width: 282px;
-    height: 282px;
-    object-fit: cover;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  color: white;
+  font-family: inherit;
+  font-size: initial;
   }

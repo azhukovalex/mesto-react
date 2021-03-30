@@ -34,7 +34,7 @@ export default function Card(props) {
   return (
     <li className="card" key={props.card._id}>
       <button className={cardDeleteButtonClassName} onClick={handleDeleteClick} type="button" aria-label="Удалить" />
-      <img className="card__image" src={props.card.link} alt={props.card.name} onClick={handleClick} />
+      <img className="card__image" alt="По указанной ссылке картинка больше недоступна" src={props.card.link} onClick={handleClick} />
       <div className="card__description">
         <h2 className="card__title">{props.card.name}</h2>
         <div className="card__like">
