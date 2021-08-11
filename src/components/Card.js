@@ -1,5 +1,8 @@
 import React from 'react';
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+/* import ImgError from "../images/default_error.jpg"; */
+
+
 
 export default function Card(props) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -34,7 +37,10 @@ export default function Card(props) {
   return (
     <li className="card" key={props.card._id}>
       <button className={cardDeleteButtonClassName} onClick={handleDeleteClick} type="button" aria-label="Удалить" />
-      <img className="card__image" alt="По указанной ссылке изображение больше недоступно" src={props.card.link} onClick={handleClick} />
+      <img className="card__image"
+        alt="По указанной ссылке изображение больше недоступно"
+        src={props.card.link} onClick={handleClick} 
+         onError={(e) => { e.target.onerror = null; e.target.src ="https://caho.ru/images/blog/003-ne-tak/ne-tak.png" }}  />
       <div className="card__description">
         <h2 className="card__title">{props.card.name}</h2>
         <div className="card__like">
